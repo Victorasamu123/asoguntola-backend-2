@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "a backend application for a project",
   "main": "index.js",
+    "engines": {
+      "node": "14.x"
+    },
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node index.js",
     "dev": "nodemon server/index.js"
   },
   "author": "",
