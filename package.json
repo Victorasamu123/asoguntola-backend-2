@@ -4,7 +4,7 @@
   "description": "a backend application for a project",
   "main": "index.js",
     "engines": {
-      "node": "14.x"
+      "node": "18.x"
     },
   "scripts": {
     "start": "node index.js",
