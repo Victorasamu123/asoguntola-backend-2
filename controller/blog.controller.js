@@ -16,7 +16,7 @@ const newblog = async (req,res)=>{
   cloudinary.v2.uploader.upload(myPhoneFile,(err,result)=>{
     if(err){
         console.log("File did not upload")
-        res.send({message:"upload failed",status:false})
+        res.send({message:"Blog post upload not sucessful due to some errors",status:false})
 
     }else{
         console.log(result.secure_url);
@@ -28,7 +28,7 @@ const newblog = async (req,res)=>{
 
         } catch (error) {
             if(error){
-                res.send({message:"Blog post upload not sucessful due to some errors",status:false});
+                // res.send({message:"Blog post upload not sucessful due to some errors",status:false});
             }
         }
     }
