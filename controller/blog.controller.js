@@ -35,4 +35,15 @@ const newblog = async (req,res)=>{
 })
 }
 
-module.exports={newblog};
+const getblogs = async (req,res)=>{
+   let blogs = await blogModel.find()
+   try {
+    if(blogs){
+        res.send({message:"blogs niyen ooo", blogs, status:true})
+    }
+   } catch (error) {
+    res.send({message:"An error occured", status:false})
+   }
+}
+
+module.exports={newblog,getblogs};
