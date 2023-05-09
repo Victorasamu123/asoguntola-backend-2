@@ -33,7 +33,6 @@ const newblog = async (req,res)=>{
         }
     }
 })
-  res.send({message:req.body})
 }
 
 module.exports={newblog};
