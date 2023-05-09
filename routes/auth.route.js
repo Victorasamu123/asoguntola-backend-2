@@ -4,5 +4,5 @@ const auth = express.Router();
 
 auth.post("/signup",signup);
 auth.post("/signin",signin);
-auth.post("/verifytoken",tokenverify);
+auth.get("/verifytoken",tokenverify);
 module.exports = auth ; 
