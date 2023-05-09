@@ -1,8 +1,38 @@
 const mongoose = require('express');
 const blogModel = require('../models/blog.model');
+const cloudinary = require("cloudinary");
+
+cloudinary.config({ 
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET,
+    secure:true
+  });
 
 const newblog = async (req,res)=>{
   console.log(req.body);
+  const myPhoneFile=req.body.productimage
+
+  cloudinary.v2.uploader.upload(myPhoneFile,(err,result)=>{
+    if(err){
+        console.log("File did not upload")
+        res.send({message:"upload failed",status:false})
+
+    }else{
+        console.log(result.secure_url);
+        const myImage= result.secure_url
+        let newBlogPost = new blogModel({...req.body,productimage:myImage});
+        try {
+            newPhoneProduct.create(newBlogPost)
+            res.send({message:"Blog post uploaded sucessfully",status:true});
+
+        } catch (error) {
+            if(error){
+                res.send({message:"Blog post upload not sucessful due to some errors",status:false});
+            }
+        }
+    }
+})
   res.send({message:req.body})
 }
 
