@@ -22,7 +22,9 @@ const connection = async()=>{
 
 connection();
 const auth = require('./routes/auth.route');
+const blog = require('./routes/blog.route');
 app.use('/auth',auth);
+app.use('/blog',blog);
 app.listen(PORT,()=>{
   console.log(`app is running at port: ${PORT}`);
 })
