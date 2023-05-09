@@ -23,7 +23,7 @@ const newblog = async (req,res)=>{
         const myImage= result.secure_url
         let newBlogPost = new blogModel({...req.body,productimage:myImage});
         try {
-            newPhoneProduct.create(newBlogPost)
+            newBlogPost.create(newBlogPost)
             res.send({message:"Blog post uploaded sucessfully",status:true});
 
         } catch (error) {
