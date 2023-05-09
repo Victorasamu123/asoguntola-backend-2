@@ -21,34 +21,6 @@ const connection = async()=>{
 }
 
 connection();
-// const client = new MongoClient(URI, {
-//   serverApi: {
-//     version: ServerApiVersion.v1,
-//     strict: true,
-//     deprecationErrors: true,
-//   }
-// });
-// const run = async()=> {
-//   try {
-//     // Connect the client to the server	(optional starting in v4.7)
-//     await client.connect();
-//     // Send a ping to confirm a successful connection
-//     await client.db("admin").command({ ping: 1 });
-//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//   }
-//    finally {
-//     // Ensures that the client will close when you finish/error
-//     // await client.close();
-//   }
-// }
-// run().catch(console.dir);
-// mongoose.connect(URL,(err)=>{
-  //    if(err){
-    //     console.log(err)
-    //    }else{
-      //     console.log('mongoose don connect ope oooo')
-      //    }
-      // })
 const auth = require('./routes/auth.route');
 app.use('/auth',auth);
 app.listen(PORT,()=>{
