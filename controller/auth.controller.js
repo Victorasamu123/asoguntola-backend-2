@@ -50,19 +50,19 @@ const signin = async (req,res)=>{
         res.send({message:"signin not successfull",status:false})
     }
     
-    //     if(err){
-    //     }else{
-    //         if(user){
-    //             user.validatePassword(password,(err,same)=>{
-    //                 
-    //                 }
-    //             })
-    //             // res.send({message:"Email Exists",status:true})
-    //         }else{
-    //            
-    //         }
-    //     }
-    // })
 }
 
-module.exports = {signup, signin};
+const tokenverify=(req,res)=>{
+    let token = req.headers.authorization.split(" ")[1]
+    jwt.verify(token,"secret",(err,result)=>{
+        if(err){
+            console.log(err)
+            res.send({message:"Error occured",status:false})
+        }else{
+            let email = result.email
+            res.send({message:"Congratulations",status:true})
+        }
+    })
+}
+
+module.exports = {signup, signin, tokenverify};
