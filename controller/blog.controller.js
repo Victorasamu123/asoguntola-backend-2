@@ -46,4 +46,7 @@ const getblogs = async (req,res)=>{
    }
 }
 
-module.exports={newblog,getblogs};
+const deleteBlogs = async (req,res)=>{
+    console.log(req.body)
+}
+module.exports={newblog,getblogs,deleteBlogs};
