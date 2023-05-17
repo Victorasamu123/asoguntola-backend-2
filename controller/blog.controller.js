@@ -47,6 +47,15 @@ const getblogs = async (req,res)=>{
 }
 
 const deleteBlogs = async (req,res)=>{
-    console.log(req.body)
+    let ID = await req.body.fillteredArray[0]._id
+    let deletedBlogs = await blogModel.findByIdAndDelete(ID)
+    try {
+        if(deletedBlogs){
+            console.log("deleted")
+            res.send({message:"item has been deleted", status:true})
+        }
+    } catch (error) {
+        res.send({message:"An error occured", status:false})
+    }
 }
 module.exports={newblog,getblogs,deleteBlogs};
