@@ -12,7 +12,18 @@ cloudinary.config({
 const newblog = async (req,res)=>{
   console.log(req.body);
   const myPhoneFile=req.body.productimage
+ if(myPhoneFile===""){
+    let newBlogPost = new blogModel(req.body);
+        try {
+            blogModel.create(newBlogPost)
+            res.send({message:"Blog post uploaded sucessfully",status:true});
 
+        } catch (error) {
+            if(error){
+                // res.send({message:"Blog post upload not sucessful due to some errors",status:false});
+            }
+        }
+ } else{
   cloudinary.v2.uploader.upload(myPhoneFile,(err,result)=>{
     if(err){
         console.log("File did not upload")
@@ -33,6 +44,7 @@ const newblog = async (req,res)=>{
         }
     }
 })
+ }
 }
 
 const getblogs = async (req,res)=>{
