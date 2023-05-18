@@ -7,9 +7,11 @@ const getSocials = async(req,res)=>{
     try {
         if (Socials) {
             res.send({status:true,Socials});
+        }else{
+        res.send({status:false,message:"couldn't get it"})
         }
     } catch (error) {
-        res.send({status:false})
+        res.send({status:false,message:"an error occured"})
     }
 }
 
