@@ -8,7 +8,7 @@ const blogSchema = new Schema({
     decription:{type:String,required:false},
     selectedValue:{type:String,required:false},
     currentDate:{type:Object,required:false}
-}, { strict: false })
+}, { strict: false });
 
 const blogModel = mongoose.model("asoguntola-blog-post_collections",blogSchema);
 
