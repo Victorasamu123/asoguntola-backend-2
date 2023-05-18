@@ -15,9 +15,9 @@ const getSocials = async(req,res)=>{
     }
 }
 
-const getAcademics = async(rreq,res)=>{
+const getAcademics = async(req,res)=>{
     let academics = "Academic/Scholar"
-    let Academics = await blogModel.find({selectedValue:academics})
+    let Academics = await blogModel.find({selectedValue:academics});
     try {
         if(Academics){
             res.send({status:true,Academics});
@@ -29,4 +29,17 @@ const getAcademics = async(rreq,res)=>{
     }
 }
 
-module.exports = {getSocials,getAcademics}
+const getAirbram = async (req,res)=>{
+    let airbram = "AIBRAM medicals"
+    let Airbram = await blogModel.find({selectedValue:airbram});
+    try {
+        if (Airbram) {
+            res.send({status:true,Airbram})
+        } else {
+            res.send({status:false,message:"couldn't get it"})
+        }
+    } catch (error) {
+        res.send({status:false,message:"an error occured"})
+    }
+}
+module.exports = {getSocials,getAcademics,getAirbram}
