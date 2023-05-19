@@ -5,7 +5,7 @@ const getSocials = async(req,res)=>{
     let soc = "Personal"
     let Personals= await blogModel.find({selectedValue:soc})
     try {
-        if (Personal) {
+        if (Personals) {
             res.send({status:true,Personals});
         }else{
         res.send({status:false,message:"couldn't get it"})
