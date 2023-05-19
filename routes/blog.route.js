@@ -6,7 +6,7 @@ const blog = express.Router()
 blog.post("/addnewblogs",newblog);
 blog.get("/getblogs",getblogs);
 blog.post("/deleteblog",deleteBlogs);
-blog.get('/getsocials',getSocials);
+blog.get('/getpersonals',getSocials);
 blog.get('/getacademics',getAcademics);
 blog.get('/getairbram',getAirbram);
 module.exports=blog;

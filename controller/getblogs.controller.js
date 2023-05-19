@@ -2,11 +2,11 @@ const mongoose = require('express');
 const blogModel = require('../models/blog.model');
 
 const getSocials = async(req,res)=>{
-    let soc = "Socials"
-    let Socials = await blogModel.find({selectedValue:soc})
+    let soc = "Personal"
+    let Personals= await blogModel.find({selectedValue:soc})
     try {
-        if (Socials) {
-            res.send({status:true,Socials});
+        if (Personal) {
+            res.send({status:true,Personals});
         }else{
         res.send({status:false,message:"couldn't get it"})
         }
