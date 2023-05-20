@@ -1,6 +1,6 @@
 const express = require('express');
 const { newblog, getblogs, deleteBlogs } = require('../controller/blog.controller');
-const { getSocials, getAcademics, getAirbram } = require('../controller/getblogs.controller');
+const { getSocials, getAcademics, getAirbram, getHealth } = require('../controller/getblogs.controller');
 const blog = express.Router()
 
 blog.post("/addnewblogs",newblog);
@@ -9,4 +9,5 @@ blog.post("/deleteblog",deleteBlogs);
 blog.get('/getpersonals',getSocials);
 blog.get('/getacademics',getAcademics);
 blog.get('/getairbram',getAirbram);
+blog.get('/gethealth',getHealth);
 module.exports=blog;

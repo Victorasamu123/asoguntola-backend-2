@@ -42,4 +42,18 @@ const getAirbram = async (req,res)=>{
         res.send({status:false,message:"an error occured"})
     }
 }
-module.exports = {getSocials,getAcademics,getAirbram}
+
+const getHealth= async  (req,res)=>{
+    let health  = "Health/health education/ breast care group"
+    let Health = await blogModel.find({selectedValue:health});
+    try {
+        if(Health){
+            res.send({status:true,Health})
+        }else{
+            res.send({status:false,message:"couldn't get it"})
+        }
+    } catch (error) {
+        res.send({status:false,message:"an error occured"})
+    }
+}
+module.exports = {getSocials,getAcademics,getAirbram,getHealth}
