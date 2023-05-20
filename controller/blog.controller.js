@@ -23,7 +23,7 @@ const newblog = async (req,res)=>{
                 // res.send({message:"Blog post upload not sucessful due to some errors",status:false});
             }
         }
- } else{
+ } if(myPhoneFile!=""){
   cloudinary.v2.uploader.upload(myPhoneFile,(err,result)=>{
     if(err){
         console.log("File did not upload")
