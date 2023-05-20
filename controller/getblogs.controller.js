@@ -56,4 +56,18 @@ const getHealth= async  (req,res)=>{
         res.send({status:false,message:"an error occured"})
     }
 }
-module.exports = {getSocials,getAcademics,getAirbram,getHealth}
+
+const getStudent = async (req,res)=>{
+    let student = "Student/Training"
+    let Student = await blogModel.find({selectedValue:student});
+    try {
+        if(Student){
+            res.send({status:true,Student})
+        }else{
+            res.send({status:false,message:"couldn't get it"})
+        }
+    } catch (error) {
+        res.send({status:false,message:"an error occured"})
+    }
+}
+module.exports = {getSocials,getAcademics,getAirbram,getHealth,getStudent}
