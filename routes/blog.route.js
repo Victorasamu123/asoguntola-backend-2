@@ -9,6 +9,6 @@ blog.post("/deleteblog",deleteBlogs);
 blog.get('/getpersonals',getSocials);
 blog.get('/getacademics',getAcademics);
 blog.get('/getairbram',getAirbram);
-blog.get('/gethealth',getHealth);
+blog.get('/health',getHealth);
 blog.get('/getstudents',getStudent);
 module.exports=blog;
